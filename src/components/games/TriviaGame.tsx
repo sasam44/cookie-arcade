@@ -8,6 +8,7 @@ import { buildMemo } from "@/lib/arcade";
 import { COOKIE_CHAIN, TRIVIA_REWARD_COOK } from "@/lib/config";
 import { explorerTx, shortAddress } from "@/lib/format";
 import { Confetti } from "@/components/Confetti";
+import { WalletPromptOverlay } from "@/components/WalletPromptOverlay";
 import { sfx } from "@/lib/sound";
 
 type Phase = "idle" | "building" | "signing" | "sending" | "confirming" | "confirmed" | "sent" | "error";
@@ -132,6 +133,7 @@ export function TriviaGame() {
   return (
     <>
       <Confetti active={showConfetti} onAnimationEnd={() => setShowConfetti(false)} count={50} />
+      <WalletPromptOverlay phase={phase} />
       <div className="grid gap-4 lg:grid-cols-[2fr_1fr]">
         <div className="card-cute p-6">
           <div className="text-[10px] uppercase tracking-widest text-cookie-300">Daily Trivia · {dayKey()}</div>

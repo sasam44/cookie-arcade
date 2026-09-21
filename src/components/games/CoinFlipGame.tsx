@@ -9,6 +9,7 @@ import { COOKIE_CHAIN } from "@/lib/config";
 import { explorerTx, shortAddress } from "@/lib/format";
 import { Cookie, GoldenCookie, CherryCookie, MintCookie, Crumb, Steam } from "@/components/CookieArt";
 import { Confetti } from "@/components/Confetti";
+import { WalletPromptOverlay } from "@/components/WalletPromptOverlay";
 import { ToastStack, type ToastItem } from "@/components/Toast";
 import { CoinFlipLeaderboard } from "@/components/CoinFlipLeaderboard";
 import { sfx } from "@/lib/sound";
@@ -205,6 +206,7 @@ export function CoinFlipGame() {
   return (
     <>
       <Confetti active={showConfetti} onAnimationEnd={() => setShowConfetti(false)} count={70} duration={1600} />
+      <WalletPromptOverlay phase={phase} />
       <ToastStack toasts={toasts} onDismiss={dismissToast} />
       <div className="grid gap-4 lg:grid-cols-[1fr_2fr]">
         <div className="card-cute relative overflow-hidden p-5">
